@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  /* Colors */
+  --primary: #0825ff;
+  --primary-hover: #001fe0;
+  --primary-light: #e0e7ff;
+
+  --secondary: #1e293b;
+  --secondary-hover: #0f172a;
+
+  --background: #f8fafc;
+  --surface: #ffffff;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  --border: #e2e8f0;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --font-sans: var(--font-sans);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--text-main);
+  @apply antialiased;
+}
+
+/* Utilities maintained for specific custom needs */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  border-radius: 0.75rem;
+  /* radius-lg */
+}
+
+/* Re-introducing custom button classes using @apply for cleaner JSX */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all gap-2 duration-200;
+}
+
+.btn-primary {
+  @apply bg-[#0825ff] text-white hover:bg-[#001fe0];
+}
+
+.btn-secondary {
+  @apply bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 hover:border-slate-400;
+}
+
+.btn-ghost {
+  @apply text-slate-500 hover:bg-[#0825ff]/5 hover:text-[#0825ff];
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
